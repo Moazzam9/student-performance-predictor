@@ -1,30 +1,48 @@
 
-Student Performance Predictor
+# Student Performance Predictor
 
-An **interactive machine learning project** that predicts a student’s final exam score based on study habits, sleep, attendance, and previous performance.  
+An **interactive machine learning project** that predicts a student’s final exam score based on study habits, sleep, attendance, previous performance, and additional factors such as extracurricular activities, class participation, and stress levels.  
 Built using **Python**, **Pandas**, **Scikit-learn**, and **Streamlit**, this project demonstrates **data analysis, predictive modeling, and web app deployment**.
 
+---
 
+## Table of Contents
+
+1. [Project Overview](#project-overview)  
+2. [Features](#features)  
+3. [Technologies Used](#technologies-used)  
+4. [Project Structure](#project-structure)  
+5. [Setup & Installation](#setup--installation)  
+6. [Usage](#usage)  
+7. [Sample Output](#sample-output)  
+8. [Future Improvements](#future-improvements)  
+9. [Author](#author)  
+
+---
 
 ## Project Overview
 
-The **Student Performance Predictor** uses a **Linear Regression model** to predict a student’s final score based on four key factors:  
+The **Student Performance Predictor** now predicts a student’s final score using **seven input features**:
 
 - Hours of study per day  
 - Hours of sleep per day  
 - Attendance percentage  
 - Previous academic scores  
+- Extracurricular activity hours per week  
+- Class participation score (1–5)  
+- Stress level (1–10)  
 
-The project also includes an **interactive Streamlit web app** to input these features and receive predictions in real-time.
+The model has been upgraded to **Random Forest** (with optional XGBoost) for higher accuracy.  
+The project includes an **interactive Streamlit web app** to input these features and get real-time predictions.
 
 ---
 
 ## Features
 
-- Predict student scores using **machine learning**  
-- Interactive **web interface** with Streamlit  
-- Data visualization of study habits vs final score  
-- Clean **project structure** and version control using Git  
+- Predict final exam scores using **advanced machine learning**  
+- Interactive **Streamlit web app** for real-time input  
+- Data visualization of relationships between study habits, stress, and scores  
+- Clean **project structure** and Git version control  
 - Ready to demonstrate for **M1 Data Science / AI applications**
 
 ---
@@ -33,9 +51,10 @@ The project also includes an **interactive Streamlit web app** to input these fe
 
 - **Python** – Programming language  
 - **Pandas & NumPy** – Data manipulation and numerical computations  
-- **Scikit-learn** – Machine learning models  
+- **Scikit-learn** – Machine learning models (Random Forest, Linear Regression)  
+- **XGBoost** – Optional high-performance model  
 - **Matplotlib & Seaborn** – Data visualization  
-- **Streamlit** – Interactive web application  
+- **Streamlit** – Interactive web app  
 - **Git & GitHub** – Version control and portfolio hosting  
 
 ---
@@ -47,10 +66,10 @@ The project also includes an **interactive Streamlit web app** to input these fe
 student-performance-predictor/
 │
 ├── data/
-│   └── students.csv       # Sample dataset
+│   └── students.csv       # Sample dataset including new features
 ├── src/
-│   ├── train_model.py     # Script to train the ML model
-│   ├── predict.py         # Script to make predictions
+│   ├── train_model.py     # Train Random Forest / XGBoost model
+│   ├── predict.py         # Make predictions using trained model
 │   └── app.py             # Streamlit interactive web app
 ├── notebooks/             # Optional Jupyter notebooks for analysis
 ├── requirements.txt       # Python dependencies
@@ -65,7 +84,7 @@ student-performance-predictor/
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/yourusername/student-performance-predictor.git
+git clone https://github.com/Moazzam9/student-performance-predictor
 cd student-performance-predictor
 ````
 
@@ -95,7 +114,7 @@ pip install -r requirements.txt
 
 ## Usage
 
-1. **Train the ML model**
+1. **Train the upgraded ML model**
 
 ```bash
 python src/train_model.py
@@ -107,30 +126,30 @@ python src/train_model.py
 python src/predict.py
 ```
 
-3. **Launch Streamlit interactive app**
+3. **Launch interactive Streamlit app**
 
 ```bash
 streamlit run src/app.py
 ```
 
-Open your browser at: `http://localhost:8501`
+Open your browser at `http://localhost:8501`.
 
 ---
 
 ## Sample Output
 
 * Predicted final score example: **78.5**
-* Interactive web app with input sliders and real-time prediction
-* Graph showing study hours vs final score
+* Streamlit app with sliders for all 7 input features
+* Visualization showing how study habits, participation, and stress relate to scores
 
 ---
 
 ## Future Improvements
 
-* Include additional features: extracurricular activities, class participation, stress levels
-* Upgrade ML model to **Random Forest** or **XGBoost** for higher accuracy
+* Include additional features such as **mental health indicators** or **time management scores**
+* Upgrade to **XGBoost** or ensemble models for higher prediction accuracy
 * Deploy the Streamlit app online using **Streamlit Cloud** or **Heroku**
-* Add **user authentication** and **data storage** for a multi-user platform
+* Add **user accounts** to store and compare predictions
 
 ---
 
@@ -138,4 +157,8 @@ Open your browser at: `http://localhost:8501`
 
 **Moazzam Azam** – [GitHub Profile](https://github.com/Moazzam9)
 Email: [moazzamkk13@gmail.com](mailto:moazzamkk13@gmail.com)
+```
+
+
+
 
