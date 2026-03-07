@@ -136,6 +136,6 @@ Open your browser at: `http://localhost:8501`
 
 ## Author
 
-**Moazzam Azam** – [GitHub Profile](https://github.com/Moazzam9/student-performance-predictor)
+**Moazzam Azam** – [GitHub Profile](https://github.com/Moazzam9)
 Email: [moazzamkk13@gmail.com](mailto:moazzamkk13@gmail.com)
 
