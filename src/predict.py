@@ -2,8 +2,9 @@ import pickle
 import numpy as np
 import pandas as pd
 
+
 with open("model.pkl", "rb") as f:
-    model = pickle.load(f)
+    pipeline = pickle.load(f)
 
 
 input_data = pd.DataFrame(
@@ -15,6 +16,6 @@ input_data = pd.DataFrame(
 )
 
 
-prediction = model.predict(input_data)
+prediction = pipeline.predict(input_data)
 
-print(f"Predicted Score: {prediction[0]:.2f}")
+print(f"🎯 Predicted Final Score: {prediction[0]:.2f}")
