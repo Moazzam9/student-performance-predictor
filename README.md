@@ -1,164 +1,140 @@
 
-# Student Performance Predictor
 
-An **interactive machine learning project** that predicts a student’s final exam score based on study habits, sleep, attendance, previous performance, and additional factors such as extracurricular activities, class participation, and stress levels.  
-Built using **Python**, **Pandas**, **Scikit-learn**, and **Streamlit**, this project demonstrates **data analysis, predictive modeling, and web app deployment**.
+# 📚 Student Performance Predictor with Extended Features
 
----
-
-## Table of Contents
-
-1. [Project Overview](#project-overview)  
-2. [Features](#features)  
-3. [Technologies Used](#technologies-used)  
-4. [Project Structure](#project-structure)  
-5. [Setup & Installation](#setup--installation)  
-6. [Usage](#usage)  
-7. [Sample Output](#sample-output)  
-8. [Future Improvements](#future-improvements)  
-9. [Author](#author)  
+Predict a student’s final exam score based on multiple factors like study habits, sleep, attendance, previous performance, extracurricular activities, class participation, and stress levels.
 
 ---
 
-## Project Overview
+## 🚀 Features
 
-The **Student Performance Predictor** now predicts a student’s final score using **seven input features**:
+* Predict final exam scores using a **Random Forest Regression pipeline**.
+* Includes **7 input features**:
 
-- Hours of study per day  
-- Hours of sleep per day  
-- Attendance percentage  
-- Previous academic scores  
-- Extracurricular activity hours per week  
-- Class participation score (1–5)  
-- Stress level (1–10)  
-
-The model has been upgraded to **Random Forest** (with optional XGBoost) for higher accuracy.  
-The project includes an **interactive Streamlit web app** to input these features and get real-time predictions.
-
----
-
-## Features
-
-- Predict final exam scores using **advanced machine learning**  
-- Interactive **Streamlit web app** for real-time input  
-- Data visualization of relationships between study habits, stress, and scores  
-- Clean **project structure** and Git version control  
-- Ready to demonstrate for **M1 Data Science / AI applications**
+  * Hours of Study per Day
+  * Sleep Hours per Day
+  * Attendance (%)
+  * Previous Exam Score
+  * Extracurricular Hours per Week
+  * Class Participation Score (1–5)
+  * Stress Level (1–10)
+* **Streamlit Web App** for interactive predictions.
+* **Standalone Python script** for batch or one-off predictions.
+* **Visualization scripts**: scatter plots and pairplots to analyze features vs. final score.
+* **Preprocessing included** (scaling) for consistent predictions.
+* Works with **robust relative paths**—no file-not-found errors.
 
 ---
 
-## Technologies Used
-
-- **Python** – Programming language  
-- **Pandas & NumPy** – Data manipulation and numerical computations  
-- **Scikit-learn** – Machine learning models (Random Forest, Linear Regression)  
-- **XGBoost** – Optional high-performance model  
-- **Matplotlib & Seaborn** – Data visualization  
-- **Streamlit** – Interactive web app  
-- **Git & GitHub** – Version control and portfolio hosting  
-
----
-
-## Project Structure
+## 📁 Project Structure
 
 ```
-
 student-performance-predictor/
 │
 ├── data/
-│   └── students.csv       # Sample dataset including new features
+│   └── students.csv          # Dataset including extended features
 ├── src/
-│   ├── train_model.py     # Train Random Forest / XGBoost model
-│   ├── predict.py         # Make predictions using trained model
-│   └── app.py             # Streamlit interactive web app
-├── notebooks/             # Optional Jupyter notebooks for analysis
-├── requirements.txt       # Python dependencies
-└── README.md              # Project documentation
-
-````
+│   ├── train_model.py        # Train Random Forest model with pipeline
+│   ├── predict.py            # Make predictions using trained model
+│   └── app.py                # Streamlit interactive web app
+├── notebooks/                # Optional Jupyter notebooks for analysis
+├── requirements.txt          # Python dependencies
+└── README.md                 # Project documentation
+```
 
 ---
 
-## Setup & Installation
+## ⚡ Setup Instructions
 
-1. **Clone the repository**
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Moazzam9/student-performance-predictor
+git clone <your-repo-url>
 cd student-performance-predictor
-````
+```
 
-2. **Create a virtual environment and activate it**
-
-Windows:
+### 2. Create a Virtual Environment (Windows)
 
 ```bash
 python -m venv venv
 venv\Scripts\activate
 ```
 
-Linux / Mac:
-
-```bash
-python -m venv venv
-source venv/bin/activate
-```
-
-3. **Install dependencies**
+### 3. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-## Usage
-
-1. **Train the upgraded ML model**
+### 4. Train the Model
 
 ```bash
-python src/train_model.py
+cd src
+python train_model.py
 ```
 
-2. **Run prediction script**
+* Outputs evaluation metrics: **MAE, RMSE, R²**.
+* Saves trained pipeline to `src/model.pkl`.
+
+### 5. Run Streamlit App
 
 ```bash
-python src/predict.py
+streamlit run app.py
 ```
 
-3. **Launch interactive Streamlit app**
+* Fill in the input fields.
+* Click **Predict Score** to get a prediction.
+
+### 6. Make Standalone Predictions
 
 ```bash
-streamlit run src/app.py
+python predict.py
 ```
 
-Open your browser at `http://localhost:8501`.
+* Uses `model.pkl` to output predictions for sample inputs.
 
----
+### 7. Visualize Data
 
-## Sample Output
-
-* Predicted final score example: **78.5**
-* Streamlit app with sliders for all 7 input features
-* Visualization showing how study habits, participation, and stress relate to scores
-
----
-
-## Future Improvements
-
-* Include additional features such as **mental health indicators** or **time management scores**
-* Upgrade to **XGBoost** or ensemble models for higher prediction accuracy
-* Deploy the Streamlit app online using **Streamlit Cloud** or **Heroku**
-* Add **user accounts** to store and compare predictions
-
----
-
-## Author
-
-**Moazzam Azam** – [GitHub Profile](https://github.com/Moazzam9)
-Email: [moazzamkk13@gmail.com](mailto:moazzamkk13@gmail.com)
+```bash
+python visualize.py
 ```
 
+* Displays scatter plots and pairplots for feature analysis.
+
+---
+
+## 📊 Evaluation Metrics
+
+| Metric | Value |
+| ------ | ----- |
+| MAE    | 1.34  |
+| RMSE   | 2.01  |
+| R²     | 0.90  |
+
+✅ The model performs well with the expanded dataset.
+
+---
+
+## 💡 Next Improvements
+
+* Add more **student data** to further improve accuracy.
+* Try other regressors: **XGBoost**, **Gradient Boosting**, or **Linear Regression**.
+* Add **cross-validation** for more robust evaluation.
+* Enhance **Streamlit app UI**: sliders, charts, downloadable reports.
+* Add **unit tests** for model predictions and scripts.
+
+---
+
+## 🔗 Useful Links
+
+* **Streamlit App**: `src/app.py`
+* **Prediction Script**: `src/predict.py`
+* **Training Script**: `src/train_model.py`
+* **Visualization**: `src/visualize.py`
 
 
+
+## 📝 License
+
+This project is open-source and available under the MIT License.
 
