@@ -1,8 +1,14 @@
+import os
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-data = pd.read_csv("data/students.csv")
+
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+data_path = os.path.join(BASE_DIR, "data", "students.csv")
+
+
+data = pd.read_csv(data_path)
 data.columns = data.columns.str.strip()
 
 
@@ -18,9 +24,15 @@ plt.tight_layout()
 plt.show()
 
 
-sns.pairplot(data, vars=["hours_study", "sleep_hours", "attendance",
-                         "previous_score", "extracurricular",
-                         "class_participation", "stress_level"],
-             hue="final_score", palette="viridis")
+sns.pairplot(
+    data,
+    vars=[
+        "hours_study", "sleep_hours", "attendance",
+        "previous_score", "extracurricular",
+        "class_participation", "stress_level"
+    ],
+    hue="final_score",
+    palette="viridis"
+)
 plt.suptitle("Feature Correlations with Final Score", fontsize=16, y=1.02)
 plt.show()
