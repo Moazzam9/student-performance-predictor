@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
@@ -7,7 +8,12 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import pickle
 import numpy as np
 
-data = pd.read_csv("data/students.csv")
+
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+data_path = os.path.join(BASE_DIR, "data", "students.csv")
+
+
+data = pd.read_csv(data_path)
 data.columns = data.columns.str.strip()
 
 
@@ -19,18 +25,20 @@ X = data[
 ]
 y = data["final_score"]
 
+
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
+
 
 pipeline = Pipeline([
     ("scaler", StandardScaler()),
     ("model", RandomForestRegressor(n_estimators=100, random_state=42))
 ])
 
+
 pipeline.fit(X_train, y_train)
 
-# Predictions
 y_pred = pipeline.predict(X_test)
 
 
@@ -44,7 +52,8 @@ print(f"RMSE: {rmse:.2f}")
 print(f"R2 Score: {r2:.2f}")
 
 
-with open("model.pkl", "wb") as f:
+model_path = os.path.join(BASE_DIR, "src", "model.pkl")
+with open(model_path, "wb") as f:
     pickle.dump(pipeline, f)
 
-print("Pipeline trained and saved successfully!")
+print(f"Pipeline trained and saved successfully at {model_path}!")
