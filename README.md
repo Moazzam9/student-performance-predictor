@@ -99,7 +99,7 @@ python predict.py
 python visualize.py
 ```
 
-* Displays scatter plots and pairplots for feature analysis.
+* Displays scatter plots and pairplots for features analysis.
 
 ---
 
